@@ -1,0 +1,23 @@
+//A module provided by Node JS out of the box to work with events
+const events = require('events');
+
+//create an instance of EventEmitter
+const dhaya = new events.EventEmitter();
+
+//create an event handler (listener)
+
+dhaya.on('speak',() =>{
+    console.log("dhaya is speaking")
+});
+dhaya.on('talk',() =>{
+    console.log("dhaya is talking")
+});
+dhaya.on('dance',() =>{
+    console.log("dhaya is dancing")
+});
+
+//trigger the events
+dhaya.emit('speak');
+dhaya.emit('talk');
+dhaya.emit('dance');
+

@@ -1,0 +1,4 @@
+node_key,city,postal_code,Street,Building,Country,Address_type,Lattitude,Longitude
+ADDR001,Bangalore,560001,MG Road,B1,India,Office,12.9716,77.5946
+ADDR002,Chennai,600001,Anna Salai,B2,India,Office,13.0827,80.2707
+ADDR003,Hyderabad,500001,Hitech City,B3,India,Warehouse,17.3850,78.4867

@@ -1,0 +1,35 @@
+{
+  "welcomeFile": "managepurchaseorder/webapp/index.html",
+  "authenticationMethod": "route",
+  "sessionTimeout": 10,
+  "pluginMetadataEndpoint": "/odata/v4/CatalogService/$metadata",
+  "routes": [				
+    {
+      "source": "/managepurchaseorder/webapp/(.*)",
+	  "localDir":"managepurchaseorder/webapp",
+	  "authenticationType": "xsuaa",
+	  "target":"$1",
+	  "csrfProtection": true
+    },  
+     {
+       "source": "^/user-api/currentUser$",
+       "target": "/currentUser",
+       "service": "sap-approuter-userapi"
+     },
+     {
+        "source": "^/(.*)$",
+        "authenticationType": "xsuaa",
+        "destination": "dhaya-api"
+     }
+  ],
+  "logout": {
+     "logoutEndpoint": "/my/logout",
+     "logoutPage": "/logout-page.html"
+  },
+  "compression": { 
+     "minSize": 2048
+  },
+   "websockets": {
+    "enabled": true
+  }
+}

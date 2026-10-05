@@ -1,0 +1,137 @@
+### it acts as the simple test client(browser)
+### three hash to start the new call
+### to test the heloworld service
+### Test dhaya function
+GET http://localhost:4004/odata/v4/ServiceName/dhaya(name=%27dhaya%27)
+
+###consume the service document
+http://localhost:4004/odata/v4/CatalogService
+
+###Metadata of the service 
+http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###Read my all employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Authorization : Basic dhaya:Welcome1
+
+###Read only the required fields
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$select=ID,nameFirst,nameLast
+
+###count
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+###top
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2&$skip=1
+
+###get single data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/aa7a0e68-31e5-45bf-b092-c5a1a57a6585
+
+###filter the data based on condition
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=nameFirst%20eq%20%27dhaya%27
+
+###Load the data from the datamodel purchaseOrder data
+http://localhost:4004/odata/v4/CatalogService/PurchaseOrderSet
+
+###Load the single PurcaseOrderdata
+http://localhost:4004/odata/v4/CatalogService/PurchaseOrderSet
+
+http://localhost:4004/odata/v4/CatalogService/PurchaseOrderSet/74867AD200E41EDBA5D8B0C98DC2C052/Items
+
+
+### Create Employee
+
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+Authorization: Basic ajith:Welcome1
+
+{
+    "nameFirst": "Aswin",
+    "nameMiddle": null,
+    "nameLast": "Kanth",
+    "type": "emp",
+    "gender": "M",
+    "sex": "M",
+    "language": "Tel",
+    "PhoneNumber": null,
+    "email": null,
+    "loginName": null,
+    "Currency": null,
+    "SalaryAmount": 10000
+}
+
+### update the record
+
+PATCH  http://localhost:4004/odata/v4/CatalogService/EmployeeSet/e93b5683-47cc-4bd4-9dd5-ee4add23b596
+Content-Type: application/json
+
+{
+    "nameFirst": "Ashwin"
+}
+
+### Delete the record
+
+DELETE  http://localhost:4004/odata/v4/CatalogService/EmployeeSet/e93b5683-47cc-4bd4-9dd5-ee4add23b596
+
+### expand it to items
+GET http://localhost:4004/odata/v4/CatalogService/PurchaseOrderSet?$expand=ITEMS
+
+
+###testing the deep insert - post batch of data together Header+item
+
+POST http://localhost:4004/odata/v4/CatalogService/PurchaseOrderSet
+Content-Type: application/json
+
+  {
+      "GROSS_AMOUNT": 2200,
+      "NET_AMOUNT": 2000,
+      "TAX_AMOUNT": 200,
+      "CURRENCY": "USD",
+      "NODE_KEY": "8F7A9D44A7F84C2E9E5B1A7C12345680",
+      "PO_ID": "4500000011",
+      "PARTNER_GUID_node_key": "4D98AB12E6A143C2B5E1D9C123456780",
+      "LIFECYCLE_STATUS": "Approved",
+      "OVERALL_STATUS": "Open",
+      "NOTE": "Example for deep insert",
+      "ITEMS": [
+        {
+          "GROSS_AMOUNT": 3030.00,
+          "NET_AMOUNT": 4000,
+          "TAX_AMOUNT": 100,
+          "CURRENCY": null,
+          "NODE_KEY": "ITEM004",
+          "PARTNER_KEY_NODE_KEY": "8F7A9D44A7F84C2E9E5B1A7C12345680",
+          "PO_ITEM_POS": 10,
+          "PRODUCT_GUID_node_key": "A1111111111111111111111111111111",
+          "LIFECYCLE_STATUS": "Approved",
+          "OVERALL_STATUS": "Open",
+          "NOTE": "Monitor Item"
+        },
+         {
+          "GROSS_AMOUNT": 3030.00,
+          "NET_AMOUNT": 4000,
+          "TAX_AMOUNT": 100,
+          "CURRENCY": null,
+          "NODE_KEY": "ITEM005",
+          "PARTNER_KEY_NODE_KEY": "8F7A9D44A7F84C2E9E5B1A7C12345680",
+          "PO_ITEM_POS": 20,
+          "PRODUCT_GUID_node_key": "A1111111111111111111111111111111",
+          "LIFECYCLE_STATUS": "Approved",
+          "OVERALL_STATUS": "Open",
+          "NOTE": "Monitor Item"
+        }
+      ]
+    }
+
+
+### Get the top 3 purchaseorder data ( custom function)
+http://localhost:4004/odata/v4/CatalogService/getLargestOrder
+
+### calling action using POST request
+
+POST http://localhost:4004/odata/v4/CatalogService/PurchaseOrderSet/8F7A9D44A7F84C2E9E5B1A7C12345678/boost
+Content-Type: application/json
+
+
+
+
+    

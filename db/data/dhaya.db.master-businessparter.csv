@@ -1,0 +1,3 @@
+node_key,BP_ROLE,Email_Address,Phone_number,Fax_number,Web_address,Company_name,Address_GUID_node_key
+BP001,Supplier,supplier1@test.com,9876543210,FAX001,www.abc.com,ABC Pvt Ltd,ADDR001
+BP002,Supplier,supplier2@test.com,9876543211,FAX002,www.xyz.com,XYZ Pvt Ltd,ADDR002
