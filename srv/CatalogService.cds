@@ -18,10 +18,10 @@ service CatalogService @(path: 'CatalogService', requires: 'authenticated-user')
  @Capabilities: { Deletable: false }
  @readonly
 entity PurchaseOrderSet @( 
-                          restrict:[
+                     /*     restrict:[
                             {grant : ['READ'], to :'Viewer'},
                             {grant : ['WRITE','DELETE'], to :'Editor'},
-                          ],
+                          ], */
                           odata.draft.enabled:true,
                           Common.DefaultValuesFunction: 'getDefaultValue')as projection on transaction.purchaseOrder {
     *, 
