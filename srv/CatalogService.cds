@@ -12,12 +12,12 @@ service CatalogService @(path: 'CatalogService', requires: 'authenticated-user')
                             {grant : ['WRITE','DELETE'], to :'Editor'},
                           ])as projection on master.employee;
   entity ProductSet as projection on master.product;
-  entity BusinessPartnerSet as projection on master.businessparter;
+  entity BusinessPartnerSet as projection on master.businessparter; //
   entity AddressSet as projection on master.address;
   //@readonly
  @Capabilities: { Deletable: false }
  @readonly
-entity PurchaseOrderSet @( 
+entity PurchaseOrderSet @(  //comment the security for escaping the authorization
                      /*     restrict:[
                             {grant : ['READ'], to :'Viewer'},
                             {grant : ['WRITE','DELETE'], to :'Editor'},
@@ -56,9 +56,5 @@ entity PurchaseOrderSet @(
 
 //noninstance bound because they are not connected to any entity
   function getLargestOrder() returns array of PurchaseOrderSet;
-
-
-
- 
 
 }
