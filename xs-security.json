@@ -43,7 +43,7 @@
       ]
     }
   ],
-  /*"role-collections": [
+  "role-collections": [
     {
       "name": "UserViewerRC",
       "description": "User Viewer Role Collection",
@@ -51,7 +51,7 @@
         "$XSAPPNAME.Viewer"
       ]
     }
-  ],*/
+  ],
   "authorities": [
     "$ACCEPT_GRANTED_AUTHORITIES"
   ],
