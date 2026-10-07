@@ -43,15 +43,6 @@
       ]
     }
   ],
-  "role-collections": [
-    {
-      "name": "UserViewerRC",
-      "description": "User Viewer Role Collection",
-      "role-template-references": [
-        "$XSAPPNAME.Viewer"
-      ]
-    }
-  ],
   "authorities": [
     "$ACCEPT_GRANTED_AUTHORITIES"
   ],
