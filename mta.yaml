@@ -1,7 +1,7 @@
 _schema-version: 3.3.0
 
 ID: BTP_CAPM
-version: 1.0.0
+version: 1.0.1
 
 description: "A CAP project developed by dhaya."
 
@@ -14,6 +14,7 @@ build-parameters:
       commands:
         - npm ci
         - npx cds build --production
+
 
 modules:
 
@@ -73,7 +74,6 @@ modules:
 
     requires:
 
-      # Backend destination
       - name: srv-api
         group: destinations
         properties:
@@ -82,7 +82,6 @@ modules:
           forwardAuthToken: true
           strictSSL: true
 
-      # XSUAA
       - name: BTP_CAPM-auth
 
 
@@ -109,3 +108,7 @@ resources:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
+
+      config:
+        xsappname: BTP_CAPM-${org}-${space}
+        tenant-mode: dedicated
