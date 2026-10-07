@@ -17,7 +17,7 @@ service CatalogService @(path: 'CatalogService', requires: 'authenticated-user')
   //@readonly
  @Capabilities: { Deletable: false }
  @readonly
-entity PurchaseOrderSet @(  //comment the security for escaping the authorization
+entity PurchaseOrderSet @(  //comment the security for escaping the authorization.
                      /*     restrict:[
                             {grant : ['READ'], to :'Viewer'},
                             {grant : ['WRITE','DELETE'], to :'Editor'},
